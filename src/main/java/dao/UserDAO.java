@@ -60,12 +60,13 @@ public class UserDAO {
 
 		Connection connection = ConnectionUtil.getInstance().getConnection();
 
-		try (PreparedStatement query = connection.prepareStatement("Select * from user")) {
+		try (PreparedStatement query = connection.prepareStatement("SELECT * FROM USER")) {
 
 			ResultSet resultSet = query.executeQuery();
 
 			while (resultSet.next()) {
-				list.add(new User(resultSet.getString("name"), resultSet.getString("age")));
+				list.add(new User.Builder().setName(resultSet.getString("name")).setAge(resultSet.getString("age"))
+						.build());
 			}
 		}
 
