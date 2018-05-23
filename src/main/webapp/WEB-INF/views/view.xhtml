@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Calculation</title>
+</h:head>
+<h:body>
+
+	<h:messages showSummary="true" errorStyle="color:red;"
+		infoStyle="color:green;" />
+		
+	<h:form prependId="false">
+		<h:panelGrid columns="2" style="width:100%">
+
+			<h:outputLabel for="value1" value="Value 1"></h:outputLabel>
+			<h:inputText id="value1" value="#{calculationManagedBean.value1}"
+				required="true" requiredMessage="Value 1 is mandatory">
+				<f:validateRegex pattern="[0-9]+"></f:validateRegex>
+			</h:inputText>
+
+			<h:outputLabel for="value2" value="Value 2"></h:outputLabel>
+			<h:inputText id="value2" value="#{calculationManagedBean.value2}"
+				required="true" requiredMessage="Value 2 is mandatory">
+				<f:validateRegex pattern="[0-9]+"></f:validateRegex>
+			</h:inputText>
+
+			<h:outputLabel for="operation" value="Operation"></h:outputLabel>
+			<h:inputText id="operation"
+				value="#{calculationManagedBean.operation}" required="true"
+				requiredMessage="Operation is mandatory">
+			</h:inputText>
+
+		</h:panelGrid>
+		<h:commandButton value="Do operation"
+			actionListener="#{calculationManagedBean.execute}"
+			style=""></h:commandButton>
+	</h:form>
+	
+</h:body>
+</html>

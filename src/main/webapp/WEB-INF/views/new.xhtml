@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Data base</title>
+</h:head>
+<h:body>
+	<h:messages showSummary="true" errorStyle="color:red;"
+		infoStyle="color:green;" />
+	<h:form prependId="false">
+		<h:panelGrid columns="2" style="width:100%">
+
+		
+			<h:outputLabel for="name" value="Name"></h:outputLabel>
+			<h:inputText id="name"
+				value="#{dataBaseManagedBean.user.name}"
+				requiredMessage="Name is mandatory">
+				<f:validateRegex pattern="[A-Za-z]+"></f:validateRegex>
+				<f:validateLength maximum="10"></f:validateLength>
+			</h:inputText>
+				
+			<h:outputLabel for="age" value="Age"></h:outputLabel>
+			<h:inputText id="age"
+				value="#{dataBaseManagedBean.user.age}"
+				requiredMessage="Age is mandatory">
+				<f:validateRegex pattern="[0-9]+"></f:validateRegex>
+				<f:validateLength minimum="2" maximum="4"></f:validateLength>
+			</h:inputText>
+		</h:panelGrid>
+		
+		<h:commandButton value="Register"
+			actionListener="#{dataBaseManagedBean.execute}"
+			style=""></h:commandButton>
+	</h:form>
+</h:body>
+</html>
