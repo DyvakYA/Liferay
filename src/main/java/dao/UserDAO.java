@@ -65,7 +65,9 @@ public class UserDAO {
 			ResultSet resultSet = query.executeQuery();
 
 			while (resultSet.next()) {
-				list.add(new User.Builder().setName(resultSet.getString("name")).setAge(resultSet.getString("age"))
+				list.add(new User.Builder()
+						.setName(resultSet.getString("name"))
+						.setAge(resultSet.getString("age"))
 						.build());
 			}
 		}
